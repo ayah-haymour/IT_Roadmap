@@ -13,60 +13,69 @@ export class AuthService {
 
   constructor(private http :HttpClient, private router: Router,private toastr:ToastrService,private spinner:NgxSpinnerService) { }
   
-  getCurrentUser(): any {
+  // getCurrentUser(): any {
      
-    const userString = localStorage.getItem('user');
-    if (userString) {
-      return JSON.parse(userString);
-    }
-    return null;
-  }
+  //   const userString = localStorage.getItem('user');
+  //   if (userString) {
+  //     return JSON.parse(userString);
+  //   }
+  //   return null;
+  // }
 
 
-  GetAllUsersEmail(): Observable<any[]> {
-    return this.http.get<any[]>('https://localhost:7274/api/User/GetAllUsersEmail');
-  }
+  // GetAllUsersEmail(): Observable<any[]> {
+  //   return this.http.get<any[]>('https://localhost:7102/api/User/GetAllUsersEmail');
+  // }
   
-  isEmailAlreadyRegistered(email: string): Observable<boolean> {
-    return this.GetAllUsersEmail().pipe(
-      map(allUserEmails => allUserEmails.some(user => user.email === email))
-    );
-  }
+  // isEmailAlreadyRegistered(email: string): Observable<boolean> {
+  //   return this.GetAllUsersEmail().pipe(
+  //     map(allUserEmails => allUserEmails.some(user => user.email === email))
+  //   );
+  // }
   
-  createUser(body: any): Observable<any> {
-    const userEmail = body.email;
+  // createUser(body: any): Observable<any> {
+  //   const userEmail = body.email;
 
-    return this.isEmailAlreadyRegistered(userEmail).pipe(
-      switchMap(isRegistered => {
-        if (isRegistered) {
-          this.toastr.error("Email already registered")
-          return of({ error: 'Email already registered' });
-        } else {
-          body.Profileimage = this.display_image;
-          return this.http.post('https://localhost:7274/api/User/CreateUser', body).pipe(
-            catchError(error => {
-              console.error('Error creating user:', error);
-              return of({ error: 'Error creating user' });
-            })
-          );
-        }
-      })
-    );
-  }
+  //   return this.isEmailAlreadyRegistered(userEmail).pipe(
+  //     switchMap(isRegistered => {
+  //       if (isRegistered) {
+  //         this.toastr.error("Email already registered")
+  //         return of({ error: 'Email already registered' });
+  //       } else {
+  //         //body.Profileimage = this.display_image;
+  //         return this.http.post('https://localhost:7102/api/User/CreateUser', body).pipe(
+  //           catchError(error => {
+  //             console.error('Error creating user:', error);
+  //             return of({ error: 'Error creating user' });
+  //           })
+  //         );
+  //       }
+  //     })
+  //   );
+  // }
 
-
-  display_image: any;
-  uploadAttachment(file: FormData){
-    this.spinner.show();
-     
-    this.http.post('https://localhost:7274/api/User/UploadImage', file).subscribe((resp:any)=>{
-    this.display_image = resp.profileimage;
-    this.spinner.hide();
-
-    },err=>{ 
+  createUser(body: any) {
+    debugger;
+    this.http.post('https://localhost:7102/api/User/CreateUser', body).subscribe((resp)=> {
+      this.toastr.success('Your account has been created successfully');
+    }, err => {
       console.log(err.message);
       console.log(err.status);
     })
   }
+
+  // display_image: any;
+  // uploadAttachment(file: FormData){
+  //   this.spinner.show();
+     
+  //   this.http.post('https://localhost:7102/api/User/UploadImage', file).subscribe((resp:any)=>{
+  //   this.display_image = resp.profileimage;
+  //   this.spinner.hide();
+
+  //   },err=>{ 
+  //     console.log(err.message);
+  //     console.log(err.status);
+  //   })
+  // }
 
 }

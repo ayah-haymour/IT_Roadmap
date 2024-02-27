@@ -28,35 +28,36 @@
                         </div>
                             <p>Check your email inbox for next steps</p>
                         </div>
-                            <form method="post" data-wf-user-form-type="signup">
+                            <form action="#" data-wf-user-form-type="signup" [formGroup]="registerForm">
                                 <div class="w-users-userformheader form-header">
                                     <div>Welcome!</div><h1>Create account to start learning</h1></div>
                                     <label for="username">User Name</label>
-                                    <input id="wf-sign-up-email" placeholder="" maxlength="256" class="text-field w-input" type="text" required=""/>
+                                    <input id="wf-sign-up-email" placeholder="" maxlength="256" class="text-field w-input" type="text" required="" formControlName="userName"/>
                                     <!-- <span style="color: red;" *ngIf="registerForm.controls['userName'].hasError('required')">User Name is
                                         required </span> -->
+
                                     <label for="Email">Email</label>
-                                    <input id="wf-sign-up-email" placeholder="" maxlength="256" name="Email" class="text-field w-input" type="email" required="" data-wf-user-form-input-type="email"/>
+                                    <input id="wf-sign-up-email" placeholder="" maxlength="256" name="Email" class="text-field w-input" type="email" required="" formControlName="email" data-wf-user-form-input-type="email"/>
                                     <!-- <span style="color: red;" *ngIf="registerForm.controls['email'].hasError('required')">Email is required
                                     </span>
                                     <span style="color: red;" *ngIf="registerForm.controls['email'].hasError('email')">Please enter a valid
                                       email address </span> -->
 
                                     <label for="Password">Password</label>
-                                    <input placeholder="" maxlength="256" name="Password" class="text-field w-input" type="password" required="" data-wf-user-form-input-type="password"/>
+                                    <input placeholder="" maxlength="256" name="Password" class="text-field w-input" type="password" required="" formControlName="password" data-wf-user-form-input-type="password"/>
                                     <!-- <span style="color: red;" *ngIf="registerForm.controls['password'].hasError('required')">password is
                                         required </span>
                                       <span style="color: red;" *ngIf="registerForm.controls['password'].hasError('minlength')">Please enter a
                                         strong password </span> -->
 
                                     <label for="Password">Confirm Password</label>
-                                    <input id="wf-sign-up-password" placeholder="" maxlength="256" name="Password" class="text-field w-input" type="password" required="" data-wf-user-form-input-type="password"/>
+                                    <input id="wf-sign-up-password" placeholder="" maxlength="256" name="Password" class="text-field w-input" type="password" required="" formControlName="confirmPassword" (change)="MatchError()" data-wf-user-form-input-type="password"/>
                                     <!-- <span style="color: red;"
                                     *ngIf="registerForm.controls['confirmPassword'].hasError('misMatch')">confirmPassword should match
                                     password value </span> -->
 
                                     <label for="Password">Phone Number</label>
-                                    <input placeholder="" maxlength="256" class="text-field w-input" type="text" required="" style="color: #fff;"/>
+                                    <input placeholder="" maxlength="256" class="text-field w-input" type="text" required="" formControlName="phoneNumber" style="color: #fff;"/>
                                     <!-- <span style="color: red;" *ngIf="registerForm.controls['phoneNumber'].hasError('required')">Phone
                                         Number is required </span>
                                       <span style="color: red;" *ngIf="registerForm.controls['phoneNumber'].hasError('pattern')">
@@ -289,11 +290,11 @@
                                 </div>
 
                                     <label for="birthdate">Birth Date</label>
-                                    <input placeholder="" maxlength="256" name="Email" class="text-field w-input" type="date" required="" data-wf-user-form-input-type="date" style="background-color: #f9f9f917; color: #fff;"/>
-                                    <!-- <span style="color: red;" *ngIf="registerForm.controls['dateOfBirth'].hasError('required')">Birth Date
-                                        is required </span> -->
+                                    <input placeholder="" maxlength="256" name="Email" class="text-field w-input" type="date" required="" formControlName="dateOfBirth" data-wf-user-form-input-type="date" style="background-color: #f9f9f917; color: #fff;"/>
+                                    <span style="color: red;" *ngIf="registerForm.controls['dateOfBirth'].hasError('required')">Birth Date
+                                        is required </span>
 
-                                    <label class="w-checkbox checkbox-field">
+                                    <!-- <label class="w-checkbox checkbox-field">
                                         <div class="w-checkbox-input w-checkbox-input--inputType-custom checkbox"></div>
                                     <input name="Checkbox" data-name="Checkbox" data-wf-user-field="wf-user-field-accept-privacy" placeholder="" type="checkbox" id="wf-sign-up-accept-privacy" required="" style="opacity:0;position:absolute;z-index:-1"/>
                                     <span class="checkbox-label w-form-label" for="Checkbox">By creating an account, I agree to this website&#x27;s <a href="#">privacy policy</a> and <a href="#">terms of service</a></span>
@@ -302,8 +303,8 @@
                                         <div class="w-checkbox-input w-checkbox-input--inputType-custom checkbox"></div>
                                                 <input name="Checkbox" data-name="Checkbox" data-wf-user-field="wf-user-field-accept-communications" placeholder="" type="checkbox" id="wf-sign-up-accept-communications" required="" style="opacity:0;position:absolute;z-index:-1"/>
                                                 <span class="checkbox-label w-form-label" for="Checkbox">I consent to receive marketing emails.</span>
-                                    </label>
-                                                <input data-wait="Please wait..." type="submit" class="w-users-userformbutton button w-button" value="Sign Up"/>
+                                    </label> -->
+                                                <input data-wait="Please wait..." type="submit" (click)="Submit()" class="w-users-userformbutton button w-button" value="Sign Up"/>
                                                 <div class="w-users-userformfooter form-footer">
                                                     <span>Already have an account?</span><a href="log-in.html"><strong>Log In</strong></a>
                                                 </div>
