@@ -32,32 +32,32 @@
                                 <div class="w-users-userformheader form-header">
                                     <div>Welcome!</div><h1>Create account to start learning</h1></div>
                                     <label for="username">User Name</label>
-                                    <input id="wf-sign-up-email" placeholder="" maxlength="256" class="text-field w-input" type="text" required="" formControlName="userName"/>
+                                    <input id="wf-sign-up-email" placeholder="" maxlength="256" class="text-field w-input" type="text" required="" (focus)="clearInput('userName')" style="color: #fff;" formControlName="userName"/>
                                     <!-- <span style="color: red;" *ngIf="registerForm.controls['userName'].hasError('required')">User Name is
                                         required </span> -->
 
                                     <label for="Email">Email</label>
-                                    <input id="wf-sign-up-email" placeholder="" maxlength="256" name="Email" class="text-field w-input" type="email" required="" formControlName="email" data-wf-user-form-input-type="email"/>
+                                    <input id="wf-sign-up-email" placeholder="" maxlength="256" name="Email" class="text-field w-input" type="email" required="" (focus)="clearInput('email')" formControlName="email" style="color: #fff;" data-wf-user-form-input-type="email"/>
                                     <!-- <span style="color: red;" *ngIf="registerForm.controls['email'].hasError('required')">Email is required
                                     </span>
                                     <span style="color: red;" *ngIf="registerForm.controls['email'].hasError('email')">Please enter a valid
                                       email address </span> -->
 
                                     <label for="Password">Password</label>
-                                    <input placeholder="" maxlength="256" name="Password" class="text-field w-input" type="password" required="" formControlName="password" data-wf-user-form-input-type="password"/>
+                                    <input placeholder="" maxlength="256" name="Password" class="text-field w-input" type="password" required="" (focus)="clearInput('password')" formControlName="password" style="color: #fff;" data-wf-user-form-input-type="password"/>
                                     <!-- <span style="color: red;" *ngIf="registerForm.controls['password'].hasError('required')">password is
                                         required </span>
                                       <span style="color: red;" *ngIf="registerForm.controls['password'].hasError('minlength')">Please enter a
                                         strong password </span> -->
 
                                     <label for="Password">Confirm Password</label>
-                                    <input id="wf-sign-up-password" placeholder="" maxlength="256" name="Password" class="text-field w-input" type="password" required="" formControlName="confirmPassword" (change)="MatchError()" data-wf-user-form-input-type="password"/>
+                                    <input id="wf-sign-up-password" placeholder="" maxlength="256" name="Password" class="text-field w-input" type="password" required="" (focus)="clearInput('confirmPassword')" formControlName="confirmPassword" (change)="MatchError()" style="color: #fff;" data-wf-user-form-input-type="password"/>
                                     <!-- <span style="color: red;"
                                     *ngIf="registerForm.controls['confirmPassword'].hasError('misMatch')">confirmPassword should match
                                     password value </span> -->
 
                                     <label for="Password">Phone Number</label>
-                                    <input placeholder="" maxlength="256" class="text-field w-input" type="text" required="" formControlName="phoneNumber" style="color: #fff;"/>
+                                    <input placeholder="" maxlength="256" class="text-field w-input" type="text" required="" (focus)="clearInput('phoneNumber')" formControlName="phoneNumber" style="color: #fff;"/>
                                     <!-- <span style="color: red;" *ngIf="registerForm.controls['phoneNumber'].hasError('required')">Phone
                                         Number is required </span>
                                       <span style="color: red;" *ngIf="registerForm.controls['phoneNumber'].hasError('pattern')">
@@ -291,8 +291,18 @@
 
                                     <label for="birthdate">Birth Date</label>
                                     <input placeholder="" maxlength="256" name="Email" class="text-field w-input" type="date" required="" formControlName="dateOfBirth" data-wf-user-form-input-type="date" style="background-color: #f9f9f917; color: #fff;"/>
-                                    <span style="color: red;" *ngIf="registerForm.controls['dateOfBirth'].hasError('required')">Birth Date
-                                        is required </span>
+                                    <!-- <span style="color: red;" *ngIf="registerForm.controls['dateOfBirth'].hasError('required')">Birth Date
+                                        is required </span> -->
+
+                                        <div class="col-md-5 mb-5">
+                                            <div class="input-group">
+                                              <label for="inputGroupFile04" class="form-label">Profile Picture</label>                    
+                                              <div class="input-group">
+                                                <input type="file" #file class="form-control custom-file-input" id="inputGroupFile04" formControlName="Profileimage"
+                                                    aria-describedby="inputGroupFileAddon04" (change)="UploadImage(file.files)">
+                                              </div>
+                                          </div>
+                                      </div>
 
                                     <!-- <label class="w-checkbox checkbox-field">
                                         <div class="w-checkbox-input w-checkbox-input--inputType-custom checkbox"></div>
