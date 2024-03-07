@@ -115,7 +115,9 @@ async Submit() {
           //   error => {
           //     console.error('Error sending email:', error);
           //   }
-          // );   
+          // );  
+          this.spinner.hide(); 
+          this.router.navigate(['security/login']);
         }
         ,
         error => {

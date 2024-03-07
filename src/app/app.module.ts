@@ -8,10 +8,10 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
 import { SharedModule } from './shared/shared.module';
-import {HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; // Make sure NgbModule is imported
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { ToastrModule } from 'ngx-toastr';
+import { TokenInterceptor } from './Interceptor/token.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,14 +26,14 @@ import { ToastrModule } from 'ngx-toastr';
     SharedModule,
     HttpClientModule,
     NgxSpinnerModule,
-    ToastrModule.forRoot({
-   
-      timeOut: 3000,
-      positionClass: 'toast-top-right',
-      preventDuplicates: true,
-    })
   ],
-  providers: [],
+  providers: [
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:TokenInterceptor,
+      multi:true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

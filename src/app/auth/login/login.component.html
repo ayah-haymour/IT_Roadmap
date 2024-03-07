@@ -29,13 +29,33 @@
                                     <h1>Log in to access free courses</h1>
                                 </div>
                                 <label for="Email" class="field-label">Email</label>
-                                <input maxlength="256" placeholder="" name="Email" id="wf-log-in-email" class="text-field w-input" type="email" autoComplete="username" required="" data-wf-user-form-input-type="email"/>
+                                <input maxlength="256" placeholder="" name="Email" id="wf-log-in-email" class="text-field w-input" style="color: white;" [(ngModel)]="loginObj.email" formControlName="email"
+                                [formControl]="email" type="email" required="" data-wf-user-form-input-type="email"/>
+                                
                                 <label for="Password" class="field-label">Password</label>
-                                <input maxlength="256" placeholder="" name="Password" id="wf-log-in-password" class="text-field w-input" type="password" required="" data-wf-user-form-input-type="password"/>
-                                <input type="submit" data-wait="Please wait..." class="w-users-userformbutton button w-button" value="Log In"/>
-                                <div class="w-users-userformfooter form-footer"><span>Forgot your password?</span>
+                                <input maxlength="256" placeholder="" name="Password" id="wf-log-in-password" class="text-field w-input" style="color: white;" type="password" required="" 
+                                formControlName="password" [formControl]="password"/>
+                                
+                                <input type="submit" (click)="submit()" data-wait="Please wait..." class="w-users-userformbutton button w-button" value="Log In"/>
+                                <!-- <div class="w-users-userformfooter form-footer"><span>Forgot your password?</span>
                                     <a href="reset-password.html"><strong>Reset password</strong></a>
+                                </div> -->
+                                <div *ngIf="(loginError$ | async)" class="alert alert-danger" role="alert">
+                                    Incorrect email or password. Please try again.
                                 </div>
+
+                                <div class="row mb-3 justify-content-start">
+                                    <div class="col-12">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="gridCheck1"
+                                                name="rememberMe" [(ngModel)]="rememberMe">
+                                            <label class="form-check-label" for="gridCheck1">
+                                                Remember Me
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
                                 <div class="w-users-userformfooter form-footer top-margin-12"><span>Don&#x27;t have an account?</span>
                                     <a href="sign-up.html"><strong>Sign Up</strong></a>
                                 </div>
