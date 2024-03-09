@@ -27,10 +27,32 @@
             "styles": [
               "src/styles.css",
               "node_modules/ngx-toastr/toastr.css",
-              "node_modules/ngx-spinner/animations/ball-spin-fade.css"
+              "node_modules/ngx-spinner/animations/ball-spin-fade.css",
+              "src/assets/DashboardAssets/assets/vendor/chosen_v1.8.7/chosen.min.css",
+              "src/assets/DashboardAssets/assets/vendor/daterangepicker/daterangepicker.css",
+              "src/assets/DashboardAssets/assets/vendor/swiper-7.3.1/swiper-bundle.min.css",
+              "src/assets/DashboardAssets/assets/vendor/simplelightbox/simple-lightbox.min.css",
+              "src/assets/DashboardAssets/assets/vendor/Product-Tour-Plugin-jQuery/lib.css",
+              "src/assets/DashboardAssets/assets/scss/style.css"
             ],
             "scripts": [
-              "node_modules/jquery/dist/jquery.js"
+              "node_modules/jquery/dist/jquery.js",
+              "src/assets/DashboardAssets/assets/js/jquery-3.3.1.min.js",
+              "src/assets/DashboardAssets/assets/js/popper.min.js",
+              "src/assets/DashboardAssets/assets/vendor/bootstrap-5/dist/js/bootstrap.bundle.js",
+              "src/assets/DashboardAssets/assets/js/main.js",
+              "src/assets/DashboardAssets/assets/js/color-scheme.js",
+              "src/assets/DashboardAssets/assets/js/pwa-services.js",
+              "src/assets/DashboardAssets/cdn.jsdelivr.net/momentjs/latest/moment.min.js",
+              "src/assets/DashboardAssets/assets/vendor/daterangepicker/daterangepicker.js",
+              "src/assets/DashboardAssets/assets/vendor/chosen_v1.8.7/chosen.jquery.min.js",
+              "src/assets/DashboardAssets/assets/vendor/chart-js-3.3.1/chart.min.js",
+              "src/assets/DashboardAssets/assets/vendor/progressbar-js/progressbar.min.js",
+              "src/assets/DashboardAssets/assets/vendor/swiper-7.3.1/swiper-bundle.min.js",
+              "src/assets/DashboardAssets/assets/vendor/simplelightbox/simple-lightbox.jquery.min.js",
+              "src/assets/DashboardAssets/assets/vendor/Product-Tour-Plugin-jQuery/lib.js",
+              "src/assets/DashboardAssets/assets/js/header-title.js",
+              "src/assets/DashboardAssets/assets/js/dashboard.js"
             ]
           },
           "configurations": {
